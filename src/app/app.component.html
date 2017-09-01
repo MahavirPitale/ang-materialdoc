@@ -1,1 +1,61 @@
-<router-outlet></router-outlet>
+<div class="header" >
+    <h1>Learn Angular Material</h1><br>
+    <div style="width: 100%">            
+        <h3 style="color: white; text-align: right; padding-right: 30px">Baxture Technologies</h3>
+    </div>
+</div>
+<div style="width:100%">
+        <button md-icon-button [mdMenuTriggerFor]="menu" style="text-align: left">
+                <button class="menu-item">Form Controls</button>
+        </button>
+        <!-- <button md-icon-button [mdMenuTriggerFor]="NAVIGATION" style="text-align: left">
+                <button class="menu-item">NAVIGATION</button>
+        </button>
+        <button md-icon-button [mdMenuTriggerFor]="LAYOUT" style="text-align: left">
+                <button class="menu-item">LAYOUT</button>
+        </button>
+        <button md-icon-button [mdMenuTriggerFor]="BUTTONSnINDICATORS" style="text-align: left">
+                <button class="menu-item">BUTTONS & INDICATORS</button>
+        </button>
+        <button md-icon-button [mdMenuTriggerFor]="POPUPSnMODALS" style="text-align: left">
+                <button class="menu-item">POPUPS & MODALS</button>
+        </button>
+        <button md-icon-button [mdMenuTriggerFor]="DATATABLE" style="text-align: left">
+                <button class="menu-item">DATA TABLE</button>
+        </button> -->
+
+</div>
+
+
+  <md-menu #menu="mdMenu">
+        <button md-menu-item routerLink="/autocomplete" routerLinkActive="active">AutoComplete</button>    
+
+        <button md-menu-item routerLink="/checkBox" routerLinkActive="active">CheckBox</button>    
+
+        <button md-menu-item routerLink="/datepicker" routerLinkActive="active">Datepicker</button>    
+
+        <button md-menu-item routerLink="/input" routerLinkActive="active">Input</button>    
+
+        <button md-menu-item routerLink="/radiobutton" routerLinkActive="active">Radiobutton</button>    
+
+        <button md-menu-item routerLink="/select" routerLinkActive="active">Select</button>    
+
+        <button md-menu-item routerLink="/slider" routerLinkActive="active">Slider</button>    
+
+        <button md-menu-item routerLink="/slideToggl" routerLinkActive="active">Slide Toggle</button>  
+
+    
+  </md-menu>
+  
+  
+<div>
+    <router-outlet>
+            <div style="position: absolute; width:50%;left:25% "><br>
+                <md-card>
+                    <md-card-title>Step 1: Install Angular Material and Angular CDK</md-card-title>
+                    <md-card-subtitle>npm install @angular2/material</md-card-subtitle>
+                    <md-card-subtitle>npm install --save angular/material2-builds angular/cdk-builds</md-card-subtitle>
+                </md-card>
+            </div><br>
+    </router-outlet>
+</div>

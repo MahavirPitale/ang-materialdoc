@@ -1,0 +1,134 @@
+<div style="width: 50%; left:25%; position: absolute">
+<form class="example-form">
+    <md-card>
+            <md-card-title>Autocomplete</md-card-title>
+        <md-card-subtitle>The autocomplete is a normal text input enhanced by a panel of suggested options.  </md-card-subtitle>
+        <md-form-field class="example-full-width">
+          <input mdInput placeholder="State" aria-label="State" [mdAutocomplete]="auto" [formControl]="stateCtrl">
+          <md-autocomplete #auto="mdAutocomplete">
+            <md-option *ngFor="let state of filteredStates | async" [value]="state.name">
+              <img style="vertical-align:middle;" aria-hidden src="{{state.flag}}" height="25" />
+              <span>{{ state.name }}</span> |
+              <small>Population: {{state.population}}</small>
+            </md-option>
+          </md-autocomplete>
+        </md-form-field>
+      
+        <br />
+      
+        <md-slide-toggle
+          [checked]="stateCtrl.disabled"
+          (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()">
+          Disable Input?
+        </md-slide-toggle>
+    </md-card>
+
+    <br>
+    <md-card>
+        <md-card-subtitle>Check Code from here...</md-card-subtitle>
+        <md-tab-group>
+            <md-tab label="HTML">
+                    <!-- <blockquote> -->
+                            <pre>
+                                <code>
+&lt;form class="example-form"&gt;
+    &lt;md-form-field class="example-full-width"&gt;
+        &lt;input mdInput placeholder="State" aria-label="State" [mdAutocomplete]="auto" [formControl]="stateCtrl"&gt;
+        &lt;md-autocomplete #auto="mdAutocomplete"&gt;
+            &lt;md-option *ngFor="let state of filteredStates | async" [value]="state.name"&gt;
+            &lt;img style="vertical-align:middle;" aria-hidden src="&#123; &#123; state.flag &#125; &#125;" height="25"/&gt;
+            &lt;span &gt; &#123; &#123; state.name &#125; &#125; &lt;/span &gt; |
+            &lt;small&gt;Population: &#123; &#123; state.population &#125; &#125; &lt;/small&gt;
+            &lt;/md-option&gt;
+        &lt;/md-autocomplete&gt;
+    &lt;/md-form-field&gt;                          
+                          
+    &lt;md-slide-toggle [checked]="stateCtrl.disabled" (change)="stateCtrl.disabled ? stateCtrl.enable() : stateCtrl.disable()"&gt; 
+        Disable Input?
+    &lt;/md-slide-toggle&gt;
+&lt;/form&gt;
+            
+                        </code>
+                    </pre>
+                <!-- </blockquote> -->
+            </md-tab>
+            <md-tab label="TS">
+                    <pre>
+                        <code>
+import &#123; Component &#125; from '@angular/core';
+import &#123; FormControl &#125; from '@angular/forms';
+
+import &#123; Observable &#125; from 'rxjs/Observable';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/map';
+
+@Component( &#123;
+  selector: 'app-autocomplete',
+  templateUrl: './autoComplete.component.html',
+  styleUrls: ['./autoComplete.component.css']
+  &#125; )
+export class AutoCompleteComponent &#123;
+    stateCtrl: FormControl;
+    filteredStates: Observable &lt;any[] &gt;;
+  
+    states: any[] = [
+    &#123;
+        name: 'India',
+        population: '2.978M',        
+        flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
+        &#125;,
+      &#123;
+        name: 'California',
+        population: '39.14M',        
+        flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
+        &#125;,
+      &#123;
+        name: 'Florida',
+        population: '20.27M',
+        flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
+        &#125;,
+      &#123;
+        name: 'Texas',
+        population: '27.47M',
+        flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
+        &#125;
+    ];
+  
+    constructor() &#123;
+      this.stateCtrl = new FormControl();
+      this.filteredStates = this.stateCtrl.valueChanges
+          .startWith(null)
+          .map(state => state ? this.filterStates(state) : this.states.slice());
+          &#125;
+  
+    filterStates(name: string) &#123;
+      return this.states.filter(state =>
+        state.name.toLowerCase().indexOf(name.toLowerCase()) === 0);
+        &#125;
+    
+        &#125;
+                   
+                        </code>
+                    </pre>
+                    </md-tab>
+            
+            
+            
+                    <md-tab label="CSS">
+                    <pre>
+                            <code>                
+example-form &#123;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    &#125;
+  
+  .example-full-width &#123;
+    width: 100%;
+    &#125;                </code>
+                    </pre>
+            </md-tab>
+        </md-tab-group>
+</md-card>
+</form>
+</div>

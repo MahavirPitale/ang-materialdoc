@@ -1,13 +1,25 @@
 
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
-import { AutocompleteDemoComponent } from './autocomplete-demo/autocomplete-demo.component';
+import {AutoCompleteComponent} from './Form Controls/AutoComplete/autoComplete.component';
 
-export const routes: Routes = [
-    { path: '', component: AutocompleteDemoComponent }
+import {PageNotFoundComponent} from './Form Controls/pagenotfound/pagenotfound.component'
+
+
+export const appRoutes: Routes = [
+  { path: 'autocomplete', component: AutoCompleteComponent },
+  { path: 'autocomplete', component: AutoCompleteComponent },
+  { path: 'autocomplete', component: AutoCompleteComponent },
+  { path: 'autocomplete', component: AutoCompleteComponent },
+  { path: 'autocomplete', component: AutoCompleteComponent },
+  { path: 'autocomplete', component: AutoCompleteComponent },
+  { path: 'autocomplete', component: AutoCompleteComponent },
+  { path: 'autocomplete', component: AutoCompleteComponent },
+
+  { path: '**', component: PageNotFoundComponent }
     
     
     
 ];
 
-export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes);
+export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(appRoutes);

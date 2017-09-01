@@ -1,0 +1,25 @@
+.header{
+    width: 100%; 
+    background-color:#00A240; 
+    color: white;
+    padding:0; 
+    margin: 0; 
+    -webkit-font-smoothing: antialiased;  
+}
+.menu-item{
+    background-color: #00A240; 
+    color: white; 
+    height: 40px;
+    box-sizing: inherit;
+    
+    
+}
+
+.menu-item:hover{
+    background-color:white; 
+    color: #00A240; 
+    height: 40px;
+    box-sizing: inherit;
+    font-size:medium;
+    
+}
